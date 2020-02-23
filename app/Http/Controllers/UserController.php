@@ -15,6 +15,9 @@ class UserController extends Controller
     {
         $enrolls = auth()->user()->enrolls;
 
+        // dd($enrolls);
+        // dd($enrolls->first()->course->lessons->first()->id);
+
         return view('users.courses', compact('enrolls'));
     }
 

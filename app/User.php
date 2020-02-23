@@ -44,6 +44,16 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Review::class);
     }
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function order_histories()
+    {
+        return $this->hasMany(OrderHistory::class);
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

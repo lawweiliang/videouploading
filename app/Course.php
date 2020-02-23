@@ -25,6 +25,6 @@ class Course extends Model
 
     public function getAverageAttribute()
     {
-        return (int)$this->reviews()->where('user_id', auth()->user()->id)->avg('rating');
+        return (int) $this->reviews()->where('course_id', $this->id)->avg('rating');
     }
 }

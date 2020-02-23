@@ -1,5 +1,5 @@
 <div class="icon">
-    <a href=""><i class="fas fa-shopping-cart"></i></a>
+    <a href="{{route('carts.all')}}"><i class="fas fa-shopping-cart"></i></a>
     <span class="number">{{ Cart::getContent()->count() }}</span>
 </div>
 <div class="dropdown course-list-dropdown corner-triangle top-right">
@@ -7,25 +7,25 @@
         <div class="item-list">
             <ul>
                 @foreach(Cart::getContent() as $cart)
-                    <li>
-                        <div class="item clearfix">
-                            <div class="item-image">
-                                <a href="">
-                                    <img src="{{ asset('images/learning.jpg') }}" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                            <div class="item-details">
-                                <a href="{{ route('course_detail', $cart->id) }}">
-                                    <div class="course-name">{{ $cart->name }}</div>
-                                    {{--<div class="instructor-name">first_name last_name</div>--}}
-                                    <div class="item-price">
-                                        <span class="current-price">${{ $cart->price }}</span>
-                                        {{--<span class="original-price">$300</span>--}}
-                                    </div>
-                                </a>
-                            </div>
+                <li>
+                    <div class="item clearfix">
+                        <div class="item-image">
+                            <a href="">
+                                <img src="{{ asset('images/learning.jpg') }}" alt="" class="img-fluid">
+                            </a>
                         </div>
-                    </li>
+                        <div class="item-details">
+                            <a href="{{ route('course_detail', $cart->id) }}">
+                                <div class="course-name">{{ $cart->name }}</div>
+                                {{--<div class="instructor-name">first_name last_name</div>--}}
+                                <div class="item-price">
+                                    <span class="current-price">${{ $cart->price }}</span>
+                                    {{--<span class="original-price">$300</span>--}}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
                 @endforeach
             </ul>
         </div>

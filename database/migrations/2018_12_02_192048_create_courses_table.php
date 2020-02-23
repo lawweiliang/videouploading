@@ -25,6 +25,7 @@ class CreateCoursesTable extends Migration
             $table->double('price');
             $table->string('level', 50);
             $table->string('thumbnail')->nullable();
+            $table->string('image_url')->nullable();
             $table->string('video_url')->nullable();
             $table->boolean('visibility');
             $table->unsignedInteger('category_id');

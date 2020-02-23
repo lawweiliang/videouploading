@@ -6,11 +6,18 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/auth/check', 'HomeController@checkAuth');
+Route::get('/auth/check', 'HomeController@checkAuth')->name('auth_check');
+
+//Search
+// Route::get('courses/search/', function () {
+//     dd('Hello');
+// });
+
 
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('category/{category}/courses', 'HomeController@courses_by_category')->name('courses_by_category');
 Route::get('courses/{course}', 'HomeController@course_detail')->name('course_detail');
+Route::get('course/search', 'HomeController@course_search')->name('course_search');
 
 // cart
 Route::get('my-carts', 'CartController@carts')->name('carts.all');
@@ -39,4 +46,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     // review
     Route::post('review', 'ReviewController@review')->name('add.review');
+
+
+    //Checkout
+    Route::get('my-carts/checkout', 'CartController@checkout')->name('carts.checkout');
+
+
+
+    //Uploader
+    Route::get('uploader', 'Uploader@index')->name('uploader');
 });
